@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Todo
+# from django.http import HttpResponse
+from django.views.generic import ListView  
 # Create your views here.
-def index(request):
-  return HttpResponse("<h1> hello world</h1>")
+class TodoList(ListView):
+  model = Todo
+  context_object_name = "tasks"
+
+# def index(request):
+#   return HttpResponse("<h1> hello world</h1>")
